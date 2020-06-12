@@ -1,0 +1,107 @@
+
+import React from 'react';
+import {
+  Alert,
+  Button,
+  Image,
+  Platform,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+
+import { MonoText } from '../../components/StyledText';
+import AppNavigator from '../../navigation/AppNavigator';
+//import { AsyncStorage } from 'react-native'
+//import AsyncStorage from '@react-native-community/async-storage';
+
+export default class NFRL_SignOutScreen  extends React.Component {
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      username: '',
+      password: '',
+    };    
+  }
+
+  onSingOut() {
+    const { username, password } = this.state;    
+
+    const {navigate} = this.props.navigation;
+    
+    this.clearData();
+    navigate('NFRL_SignIn', {name: 'User'})
+  }
+
+  clearData = async () => {
+    try {
+      await AsyncStorage.removeItem('uname');      
+    } catch (e) {
+      // saving error
+    }
+  }
+
+  render() {    
+    const {navigate} = this.props.navigation;
+    return (
+      <View style={styles.container}>
+        <Text style={styles.header}>
+          KBW Group
+        </Text>
+        
+        <Button
+          title={'Sign Out'}
+          style={styles.input} 
+          onPress={this.onSingOut.bind(this)}            
+        />        
+                        
+      </View>
+    );
+  } 
+
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+  },
+  header: {
+    alignItems: 'center',
+    fontWeight: '900',
+  },
+  input: {
+    width: 300,
+    height: 44,
+    padding: 10,
+    borderWidth: 1,
+    borderColor: 'black',
+    marginBottom: 10,
+  },  
+  button: {
+    backgroundColor: 'green',
+    width: 300,
+    height: 44,
+    borderColor: 'transparent',
+    borderWidth: 0,
+    borderRadius: 5
+  },
+  helpContainer: {
+    marginTop: 15,
+    alignItems: 'center',
+  },
+  helpLink: {
+    paddingVertical: 15,
+  },
+  helpLinkText: {
+    fontSize: 14,
+    color: '#2e78b7',
+  },
+});

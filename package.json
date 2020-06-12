@@ -1,0 +1,43 @@
+{
+  "name": "PSU_Commu",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "moment": "^2.24.0",
+    "react": "16.8.6",
+    "react-native": "0.60.4",
+    "react-native-action-button": "^2.8.5",
+    "react-native-datepicker": "^1.7.2",
+    "react-native-elements": "^1.2.7",
+    "react-native-gesture-handler": "1.5.2",
+    "react-native-reanimated": "1.4.0",
+    "react-native-restful-client": "^1.0.0",
+    "react-native-vector-icons": "6.6.0",
+    "react-navigation": "^4.0.10",
+    "react-navigation-drawer": "^2.3.3",
+    "react-navigation-stack": "^1.10.3",
+    "react-navigation-tabs": "^2.6.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.7.4",
+    "@babel/runtime": "7.7.4",
+    "@react-native-community/eslint-config": "0.0.3",
+    "babel-jest": "24.9.0",
+    "eslint": "6.7.2",
+    "jest": "24.9.0",
+    "jetifier": "^1.6.5",
+    "metro-react-native-babel-preset": "0.54.1",
+    "react-test-renderer": "16.8.6"
+  },
+  "jest": {
+    "preset": "react-native",
+    "setupFiles": [
+      "./node_modules/react-native-gesture-handler/jestSetup.js"
+    ]
+  }
+}
